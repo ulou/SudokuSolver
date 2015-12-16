@@ -18,6 +18,6 @@ public class Main {
     public static void main(String[] args){
 
         BruteForce brute = new BruteForce(example);
-        brute.showSolution();
+        brute.solve();
     }
 }
