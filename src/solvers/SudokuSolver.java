@@ -9,6 +9,7 @@ public abstract class SudokuSolver {
 
     protected final int colLenght = 9;
     protected final int rowLenght = 9;
+    protected final int squareLenght = 3;
 
     protected int table[][];
 
@@ -42,11 +43,4 @@ public abstract class SudokuSolver {
         }
     }
 
-    public int getColLenght() {
-        return colLenght;
-    }
-
-    public int getRowLenght() {
-        return rowLenght;
-    }
 }
