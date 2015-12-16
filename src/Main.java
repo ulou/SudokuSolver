@@ -1,25 +1,38 @@
+import boards.SudokuBoard;
+import design.Colors;
 import solvers.BruteForce;
 
 /**
  * Created by Marcel on 16.12.2015.
  */
 public class Main {
+    private long start, stop;
 
-    static int[][] example = new int[][]{
-            {0, 0, 9, 1, 0, 0, 0, 0, 2},
-            {0, 4, 0, 8, 0, 5, 0, 0, 0},
-            {0, 8, 0, 0, 0, 0, 0, 1, 5},
+    public void start() {
+        start = System.currentTimeMillis(); // start timing
+    }
 
-            {0, 0, 5, 6, 0, 0, 0, 4, 3},
-            {0, 0, 7, 9, 0, 0, 0, 2, 0},
-            {0, 9, 0, 0, 5, 8, 1, 0, 0},
+    public void stop() {
+        stop = System.currentTimeMillis(); // stop timing
+    }
 
-            {6, 0, 0, 3, 4, 0, 0, 0, 1},
-            {3, 0, 8, 7, 1, 0, 0, 0, 4},
-            {0, 1, 0, 0, 0, 0, 6, 0, 7}};
+    public long Time() {
+        return (stop - start);
+    }
+
+    public String end() {
+        return Colors.YELLOW + "Algorithm took: " + Long.toString(Time()) + " [ms].\n\n" + Colors.RESET; // print execution time
+    }
+
     public static void main(String[] args){
 
-        BruteForce brute = new BruteForce(example);
+        BruteForce brute = new BruteForce(SudokuBoard.example);
+        Main timer = new Main();
+        timer.start();
         brute.solve();
+        timer.stop();
+        brute.showSolution();
+
+        System.out.println(timer.end());
     }
 }
